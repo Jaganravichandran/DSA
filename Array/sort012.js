@@ -2,6 +2,8 @@
 
 // sort 0's, 1's and 2's
 
+// Dutch National Flag Algorithm
+
 function sortArr(arr) {
   let n = arr.length;
   let low = 0,
