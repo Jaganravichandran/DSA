@@ -40,7 +40,7 @@ Feel free to open issues or provide optimization tips.
 
 | Category              | Problems Solved |
 |-----------------------|-----------------|
-| Arrays               | XX              |
+| Arrays               | 08              |
 | Strings              | XX              |
 | Linked Lists         | XX              |
 | Trees                | XX              |
