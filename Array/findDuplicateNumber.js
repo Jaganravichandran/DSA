@@ -1,5 +1,7 @@
 // Find the One Duplicate Number
 
+// Tortoise method
+
 function findDuplicate(nums) {
   let slow = nums[0];
   let fast = nums[0];
