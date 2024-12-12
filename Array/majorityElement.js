@@ -32,7 +32,7 @@ function majorityElement(nums) {
   //   }
   //   return -1;
 
-  // Optimal solution TC: O(N) SC: O(1)
+  // Optimal solution(Moore's Voting Algo) TC: O(N) SC: O(1)
 
   let n = nums.length;
   let count = 0;
