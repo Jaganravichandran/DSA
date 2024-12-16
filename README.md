@@ -1,6 +1,6 @@
 # DSA Solutions
 
-Welcome to my **DSA (Data Structures and Algorithms)** repository! 🚀  
+Welcome to my **DSA (Data Structures and Algorithms)** repository! 🚀
 
 This repository serves as a personal collection of solutions to DSA problems I solve daily. The aim is to document progress, enhance problem-solving skills, and create a resource for revision.
 
@@ -36,6 +36,7 @@ Feel free to open issues or provide optimization tips.
 
 ---
 
+<!--
 ## 📈 Progress
 
 | Category              | Problems Solved |
@@ -49,7 +50,7 @@ Feel free to open issues or provide optimization tips.
 | Sorting & Searching  | XX              |
 | Miscellaneous        | XX              |
 
----
+--- -->
 
 ## ✍️ Author
 
