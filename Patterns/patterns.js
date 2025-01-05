@@ -6,7 +6,7 @@
 //    * * * *
 //    * * * *
 
-let n = 5;
+let n = 4;
 for (let i = 0; i < n; i++) {
   let row = ""; // initialize an empty string for each row
   for (let j = 0; j < n; j++) {
@@ -172,4 +172,53 @@ for (let i = 1; i <= 2 * n - 1; i++) {
     row += "*";
   }
   // console.log(row);
+}
+
+// (11)
+// 1
+// 0 1
+// 1 0 1
+// 0 1 0 1
+// 1 0 1 0 1
+
+let start = 1;
+for (let i = 0; i < n; i++) {
+  let row = "";
+  if (i % 2 == 0) {
+    start = 1;
+  } else {
+    start = 0;
+  }
+  for (let j = 0; j <= i; j++) {
+    row += start + " ";
+    start = 1 - start;
+  }
+  // console.log(row);
+}
+
+// (12)
+// 1             1
+// 1 2         2 1
+// 1 2 3     3 2 1
+// 1 2 3 4 4 3 2 1
+let space = 2 * (n - 1);
+for (let i = 1; i <= n; i++) {
+  let row = "";
+  let start = 1;
+  // numbers
+  for (let j = 0; j < i; j++) {
+    row += start + " ";
+    start++;
+  }
+  // spaces
+  for (let j = 1; j <= space; j++) {
+    row += "  ";
+  }
+  // numbers
+  for (let j = 0; j < i; j++) {
+    start--;
+    row += start + " ";
+  }
+  space -= 2;
+  console.log(row);
 }
