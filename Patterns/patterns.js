@@ -323,3 +323,72 @@ for (let i = 0; i < n; i++) {
   }
   // console.log(row);
 }
+
+// (18)
+// E
+// D E
+// C D E
+// B C D E
+// A B C D E
+
+for (let i = 0; i < n; i++) {
+  let row = "";
+  let num = 0;
+  for (let j = 0; j <= i; j++) {
+    let char = String.fromCharCode(69 - i + num);
+    row += char + " ";
+    num++;
+  }
+  // console.log(row);
+}
+
+// (19)
+// * * * * * * * * * *
+// * * * *     * * * *
+// * * *         * * *
+// * *             * *
+// *                 *
+// *                 *
+// * *             * *
+// * * *         * * *
+// * * * *     * * * *
+// * * * * * * * * * *
+
+// [stars, spaces, stars]
+
+let spaces = 0;
+for (let i = 0; i < n; i++) {
+  let row = "";
+  // stars
+  for (let j = 1; j <= n - i; j++) {
+    row += "*";
+  }
+  // spaces
+  for (let j = 0; j < spaces; j++) {
+    row += " ";
+  }
+  // stars
+  for (let j = 1; j <= n - i; j++) {
+    row += "*";
+  }
+  spaces += 2;
+  console.log(row);
+}
+spaces = 8;
+for (let i = 1; i <= n; i++) {
+  let row = "";
+  // stars
+  for (let j = 1; j <= i; j++) {
+    row += "*";
+  }
+  // spaces
+  for (let j = 0; j < spaces; j++) {
+    row += " ";
+  }
+  // stars
+  for (let j = 1; j <= i; j++) {
+    row += "*";
+  }
+  spaces -= 2;
+  console.log(row);
+}
