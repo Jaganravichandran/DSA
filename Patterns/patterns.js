@@ -372,9 +372,9 @@ for (let i = 0; i < n; i++) {
     row += "*";
   }
   spaces += 2;
-  console.log(row);
+  // console.log(row);
 }
-spaces = 8;
+spaces = 2 * n - 2;
 for (let i = 1; i <= n; i++) {
   let row = "";
   // stars
@@ -390,5 +390,85 @@ for (let i = 1; i <= n; i++) {
     row += "*";
   }
   spaces -= 2;
+  // console.log(row);
+}
+
+// (20)
+// *                 *
+// * *             * *
+// * * *         * * *
+// * * * *     * * * *
+// * * * * * * * * * *
+// * * * *     * * * *
+// * * *         * * *
+// * *             * *
+// *                 *
+
+let space1 = 2 * n - 2;
+for (let i = 1; i <= 2 * n - 1; i++) {
+  let row = "";
+  let stars = i;
+  // stars
+  if (i > n) {
+    stars = 2 * n - i;
+  }
+  for (let j = 1; j <= stars; j++) {
+    row += "*";
+  }
+  // spaces
+  for (let j = 0; j < space1; j++) {
+    row += " ";
+  }
+  // stars
+  for (let j = 1; j <= stars; j++) {
+    row += "*";
+  }
+  i < n ? (space1 -= 2) : (space1 += 2);
+  //  console.log(row);
+}
+
+// (21)
+
+// ****
+// *  *
+// *  *
+// ****
+let length = 4;
+for (let i = 0; i < length; i++) {
+  let row = "";
+  for (let j = 0; j < length; j++) {
+    if (i == 0 || j == 0 || j == length - 1 || i == length - 1) {
+      row += "*";
+    } else {
+      row += " ";
+    }
+  }
+  // console.log(row);
+}
+
+// (22)
+
+// 4 4 4 4 4 4 4
+// 4 3 3 3 3 3 4
+// 4 3 2 2 2 3 4
+// 4 3 2 1 2 3 4
+// 4 3 2 2 2 3 4
+// 4 3 3 3 3 3 4
+// 4 4 4 4 4 4 4
+
+for (let i = 0; i < 2 * length - 1; i++) {
+  let row = "";
+  for (let j = 0; j < 2 * length - 1; j++) {
+    let top = i;
+
+    let left = j;
+
+    let right = 2 * length - 2 - j;
+
+    let bottom = 2 * length - 2 - i;
+
+    // row += Math.min(top, left, right, bottom); // new matrix
+    row += length - Math.min(top, left, right, bottom);
+  }
   console.log(row);
 }
