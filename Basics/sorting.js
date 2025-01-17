@@ -56,8 +56,58 @@ function insertionSort(arr) {
   return arr;
 }
 
-let arr = [13, 46, 24, 52, 20, 9];
+// let arr = [13, 46, 24, 52, 20, 9];
 // let arr2 = [2, 3, 5, 15, 20];
 // let ans = selectionSort(arr);
-let ans = insertionSort(arr);
-console.log(ans);
+// let ans = bubbleSort(arr);
+// let ans = insertionSort(arr);
+// console.log(ans);
+
+// Merge Sort
+function main(arr) {
+  let n = arr.length;
+  let low = 0;
+  let high = n - 1;
+  mergeDivide(arr, low, high);
+  return arr;
+}
+
+function mergeDivide(arr, low, high) {
+  if (low >= high) {
+    return;
+  }
+  let mid = Math.floor((low + high) / 2);
+  mergeDivide(arr, low, mid);
+  mergeDivide(arr, mid + 1, high);
+  mergeSort(arr, low, mid, high);
+}
+
+function mergeSort(arr, low, mid, high) {
+  let temp = [];
+  let left = low;
+  let right = mid + 1;
+  while (left <= mid && right <= high) {
+    if (arr[left] <= arr[right]) {
+      temp.push(arr[left]);
+      left++;
+    } else {
+      temp.push(arr[right]);
+      right++;
+    }
+  }
+  while (left <= mid) {
+    temp.push(arr[left]);
+    left++;
+  }
+  while (right <= high) {
+    temp.push(arr[right]);
+    right++;
+  }
+  for (let i = low; i <= high; i++) {
+    arr[i] = temp[i - low];
+  }
+}
+
+let arr = [3, 1, 2, 4, 1, 5, 6, 2, 4]; // [1,1,2,2,3,4,4,5,6]
+let result = main(arr);
+console.log(result);
