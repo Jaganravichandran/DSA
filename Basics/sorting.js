@@ -108,6 +108,60 @@ function mergeSort(arr, low, mid, high) {
   }
 }
 
-let arr = [3, 1, 2, 4, 1, 5, 6, 2, 4]; // [1,1,2,2,3,4,4,5,6]
-let result = main(arr);
+// let arr = [3, 1, 2, 4, 1, 5, 6, 2, 4]; // [1,1,2,2,3,4,4,5,6]
+// let result = main(arr);
+// console.log(result);
+
+// Quick Sort
+
+function qs(arr) {
+  let n = arr.length;
+  let low = 0;
+  let high = n - 1;
+  quickSort(arr, low, high);
+  return arr;
+}
+
+function quickSort(arr, low, high) {
+  if (low < high) {
+    let pIndex = partition(arr, low, high);
+    quickSort(arr, low, pIndex - 1);
+    quickSort(arr, pIndex + 1, high);
+  }
+}
+
+function partition(arr, low, high) {
+  let pivot = arr[low];
+  let i = low;
+  let j = high;
+  while (i < j) {
+    // Ascending Order
+    while (arr[i] <= pivot && i <= high - 1) {
+      i++;
+    }
+    while (arr[j] >= pivot && j >= low + 1) {
+      j--;
+    }
+
+    // Descending Order
+    // while (arr[i] >= pivot && i <= high - 1) {
+    //   i++;
+    // }
+    // while (arr[j] < pivot && j > low + 1) {
+    //   j--;
+    // }
+    if (i < j) {
+      let temp = arr[j];
+      arr[j] = arr[i];
+      arr[i] = temp;
+    }
+  }
+  let temp = arr[j];
+  arr[j] = arr[low];
+  arr[low] = temp;
+  return j;
+}
+
+let arr = [4, 6, 2, 5, 7, 9, 1, 3];
+let result = qs(arr);
 console.log(result);
