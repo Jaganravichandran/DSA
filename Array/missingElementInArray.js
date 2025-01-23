@@ -2,20 +2,27 @@
 
 // Missing element in array
 
-function missingElement(arr) {
+function missingElement(arr, n) {
   // Optimal
-
   // Method 1:
-  let sum = 0;
-  let n = arr.length + 1;
-  for (let i = 0; i < n - 1; i++) {
-    sum += arr[i];
-  }
-  let expectedSum = (n * (n + 1)) / 2;
-  return expectedSum - sum;
-}
+  // let sum = 0;
+  // let n = arr.length + 1;
+  // for (let i = 0; i < n - 1; i++) {
+  //   sum += arr[i];
+  // }
+  // let expectedSum = (n * (n + 1)) / 2;
+  // return expectedSum - sum;
 
-// console.log(missingElement([1, 2, 3, 4, 5]));
+  let N = n - 1;
+  let xor1 = 0;
+  let xor2 = 0;
+  for (let i = 0; i < N; i++) {
+    xor2 = xor2 ^ arr[i];
+    xor1 = xor1 ^ (i + 1);
+  }
+  xor1 = xor1 ^ n;
+  return xor1 ^ xor2;
+}
 
 function missingNum(arr, n) {
   // brute force
@@ -41,7 +48,8 @@ function missingNum(arr, n) {
 }
 
 let arr = [1, 2, 4, 5];
-let result = missingNum(arr, 5);
+// let result = missingNum(arr, 5);
+let result = missingElement(arr, 5);
 console.log(result);
 
 // <---------x------x----->
