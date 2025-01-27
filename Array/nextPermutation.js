@@ -19,11 +19,19 @@ function nextPermutation(nums) {
       break;
     }
   }
-
-  nums.splice(index + 1, n - index - 1, ...nums.slice(index + 1).reverse());
+  // nums.splice(index + 1, n - index - 1, ...nums.slice(index + 1).reverse());
+  reverse(nums, index + 1, n - 1);
   return nums;
 }
 
-let nums = [1, 2, 3, 4, 5];
+function reverse(arr, start, end) {
+  while (start < end) {
+    [arr[start], arr[end]] = [arr[end], arr[start]];
+    start++;
+    end--;
+  }
+}
+
+let nums = [2, 1, 5, 4, 3, 0, 0];
 let ans = nextPermutation(nums);
 console.log(ans);
