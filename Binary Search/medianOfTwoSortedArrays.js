@@ -71,8 +71,43 @@ function findMedianBetter(a, b) {
   return (elt1 + elt2) / 2.0;
 }
 
-let arr1 = [1, 3]; // [1, 3, 4, 7, 10, 12]
-let arr2 = [2]; // [2, 3, 6, 15]
+function findMedianOptimal(a, b) {
+  let n1 = a.length;
+  let n2 = b.length;
+  let n = n1 + n2;
+  // if n1 is bigger than n2 then again call the function and swap the arrays => (b,a)
+  if (n1 > n2) return findMedianOptimal(b, a);
+  let low = 0;
+  let high = n1;
+  let left = Math.floor((n1 + n2 + 1) / 2);
+  while (low <= high) {
+    let mid1 = Math.floor((low + high) / 2);
+    let mid2 = left - mid1;
+
+    // assigning initial values if doesn't exist
+    let l1 = Number.MIN_SAFE_INTEGER;
+    let l2 = Number.MIN_SAFE_INTEGER;
+    let r1 = Number.MAX_SAFE_INTEGER;
+    let r2 = Number.MAX_SAFE_INTEGER;
+    if (mid1 < n1) r1 = a[mid1];
+    if (mid2 < n2) r2 = b[mid2];
+    if (mid1 - 1 >= 0) l1 = a[mid1 - 1];
+    if (mid2 - 1 >= 0) l2 = b[mid2 - 1];
+    if (l1 <= r2 && l2 <= r1) {
+      if (n % 2 == 1) return Math.max(l1, l2);
+      else return (Math.max(l1, l2) + Math.min(r1, r2)) / 2.0;
+    } else if (l1 > r2) {
+      high = mid1 - 1;
+    } else {
+      low = mid1 + 1;
+    }
+  }
+  return 0;
+}
+
+let arr1 = [2, 4, 6]; // [1, 3]
+let arr2 = [1, 3]; // [2]
 // let result = findMedian(arr1, arr2);
-let result = findMedianBetter(arr1, arr2);
+// let result = findMedianBetter(arr1, arr2);
+let result = findMedianOptimal(arr1, arr2);
 console.log(result);
