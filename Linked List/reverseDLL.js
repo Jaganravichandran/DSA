@@ -36,6 +36,7 @@ function reverseBrute(head) {
 }
 
 function reverseOptimal(head) {
+  if (head == null || head.next == null) return head; // edge case
   let current = head;
   let last = null;
   while (current != null) {
