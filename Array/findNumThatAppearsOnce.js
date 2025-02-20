@@ -35,9 +35,9 @@ function appearsOnceBetter(arr) {
   for (let i = 0; i < n; i++) {
     map.set(arr[i], (map.get(arr[i]) || 0) + 1);
   }
-  for (let i = 0; i <= map.size; i++) {
-    if (map.get(i) == 1) {
-      return i == undefined ? 0 : i;
+  for (let num of map.keys()) {
+    if (map.get(num) == 1) {
+      return num;
     }
   }
 }
