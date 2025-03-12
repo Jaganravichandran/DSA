@@ -2,6 +2,21 @@
 
 // 1) Given Row and Col, tell the element at that place Row =5, Col=3
 
+// Brute
+function factorial(n) {
+  if (n == 0) return 1;
+  return n * factorial(n - 1);
+}
+
+function NCRBrute(n, r) {
+  let n1 = factorial(n);
+  let d1 = factorial(r - 1);
+  let d2 = factorial(n - 1 - (r - 1));
+  let res = n1 / (d1 * d2);
+  return res;
+}
+
+// Optimal
 function NCR(n, r) {
   let row = n - 1;
   let col = r - 1;
@@ -13,26 +28,56 @@ function NCR(n, r) {
   return res;
 }
 
-// console.log(NCR(5, 3));
+// let res = NCRBrute(4, 2);
+// let res = NCR(4, 2);
+// console.log(res);
 
 // 2) Print any Nth row of pascals triangle
 
+// Brute
+function nthRowBrute(row) {
+  let ans = [];
+  for (let col = 1; col <= row; col++) {
+    let elt = NCR(row, col);
+    ans.push(elt);
+  }
+  return ans;
+}
+
+// Optimal
 function pascalsTriangleRow(row) {
-  let ans = 1;
-  let ansRow = [1];
+  let ansRow = [];
+  let val = 1;
+  ansRow.push(val);
 
   for (let col = 1; col < row; col++) {
-    ans = ans * (row - col);
-    ans = ans / col;
-    ansRow.push(ans);
+    val = val * (row - col);
+    val = val / col;
+    ansRow.push(val);
   }
   return ansRow;
 }
 
-// console.log(pascalsTriangleRow(5));
+// let res = nthRowBrute(3);
+// let res = pascalsTriangleRow(2);
+// console.log(res);
 
 // Given N , print the entire pascals triangle
 
+// Brute
+function pascalsTriangleBrute(n) {
+  let ans = [];
+  for (let row = 1; row <= n; row++) {
+    let temp = [];
+    for (let col = 1; col <= row; col++) {
+      temp.push(NCR(row, col));
+    }
+    ans.push(temp);
+  }
+  return ans;
+}
+
+// Optimal
 function pascalsTriangle(n) {
   let ans = [];
   for (let row = 1; row <= n; row++) {
@@ -41,4 +86,6 @@ function pascalsTriangle(n) {
   return ans;
 }
 
-console.log(pascalsTriangle(5));
+// let res = pascalsTriangleBrute(5);
+let res = pascalsTriangle(5);
+console.log(res);
