@@ -19,18 +19,14 @@ function countSubArrOptimal(arr, k) {
   let map = new Map();
 
   map.set(0, 1);
-  console.log(map);
-  preSum = 0;
+  let preSum = 0;
   let count = 0;
   for (let i = 0; i < n; i++) {
     preSum += arr[i];
     let remove = preSum - k;
-    console.log(remove);
     count += map.get(remove) || 0;
-    console.log(count);
 
     map.set(preSum, (map.get(preSum) || 0) + 1);
-    console.log(map);
   }
   return count;
 }
