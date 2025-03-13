@@ -21,11 +21,14 @@ function countSubArrOptimal(arr, k) {
   let n = arr.length;
   let map = new Map();
 
-  map.set(0, 1);
+  // map.set(0, 1);
   let xor = 0;
   let count = 0;
   for (let i = 0; i < n; i++) {
     xor ^= arr[i];
+    if (xor == k) {
+      count++;
+    }
     let remove = xor ^ k;
     count += map.get(remove) || 0;
 
