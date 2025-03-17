@@ -23,6 +23,7 @@ function searchMatrixBetter(mat, target) {
       return binarySearch(mat[i], target);
     }
   }
+  return false;
 }
 
 function binarySearch(arr, target) {
