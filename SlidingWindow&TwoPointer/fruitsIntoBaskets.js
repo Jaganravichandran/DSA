@@ -28,12 +28,33 @@ function totalFruitsBetter(arr) {
   let map = new Map();
   while (right < n) {
     map.set(arr[right], (map.get(arr[right]) || 0) + 1);
+    while (map.size > 2) {
+      map.set(arr[left], map.get(arr[left]) - 1);
+      if (map.get(arr[left]) == 0) map.delete(arr[left]);
+      left++;
+    }
+    if (map.size <= 2) {
+      let len = right - left + 1;
+      maxLen = Math.max(maxLen, len);
+    }
+    right++;
+  }
+  return maxLen;
+}
+
+// Optimal
+function totalFruits(arr) {
+  let n = arr.length;
+  let maxLen = 0;
+  let left = 0;
+  let right = 0;
+  let map = new Map();
+  while (right < n) {
+    map.set(arr[right], (map.get(arr[right]) || 0) + 1);
     if (map.size > 2) {
-      while (map.size > 2) {
-        map.set(arr[left], map.get(arr[left]) - 1);
-        if (map.get(arr[left]) == 0) map.delete(arr[left]);
-        left++;
-      }
+      map.set(arr[left], map.get(arr[left]) - 1);
+      if (map.get(arr[left]) == 0) map.delete(arr[left]);
+      left++;
     }
     if (map.size <= 2) {
       let len = right - left + 1;
@@ -46,5 +67,6 @@ function totalFruitsBetter(arr) {
 
 let arr = [3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4];
 // let res = totalFruitsBrute(arr);
-let res = totalFruitsBetter(arr);
+// let res = totalFruitsBetter(arr);
+let res = totalFruits(arr);
 console.log(res);
