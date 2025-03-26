@@ -20,10 +20,11 @@ function inorderTraversal(root) {
     if (current != null) {
       stack.push(current);
       current = current.left;
+    } else {
+      current = stack.pop();
+      result.push(current.data);
+      current = current.right;
     }
-    current = stack.pop();
-    result.push(current.data);
-    current = current.right;
   }
   return result;
 }
@@ -57,6 +58,6 @@ tree.left.right = new Node(4);
 tree.left.right.left = new Node(5);
 tree.left.right.right = new Node(6);
 
-let res = inorderTraversal(tree);
-// let res = inorderTraversal2(tree);
+// let res = inorderTraversal(tree);
+let res = inorderTraversal2(tree);
 console.log(res);
