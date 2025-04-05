@@ -10,7 +10,7 @@ class Node {
 
 function inorder(root) {
   let result = [];
-  if (!root) return resull;
+  if (!root) return result;
 
   let current = root;
   while (current != null) {
