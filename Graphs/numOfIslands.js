@@ -85,7 +85,7 @@ function numIslands(grid) {
             grid[nRow][nCol] == "L" &&
             !visited[nRow][nCol]
           ) {
-            visited[row][col] = 1;
+            visited[nRow][nCol] = 1;
             queue.push([nRow, nCol]);
           }
         }
@@ -117,6 +117,6 @@ let grid = [
   ["W", "W", "W", "W", "L", "L", "W", "W", "W", "W"],
 ];
 
-let res = numIslandsBrute(grid);
-// let res = numIslands(grid);
+// let res = numIslandsBrute(grid);
+let res = numIslands(grid);
 console.log(res);
