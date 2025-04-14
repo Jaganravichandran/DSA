@@ -152,6 +152,6 @@ let sr = 1;
 let sc = 1;
 let color = 2;
 // let res = floodFill(image, sr, sc, color);
-// let res = floodFillbetter(image, sr, sc, color);
-let res = floodFillOptimal(image, sr, sc, color);
+let res = floodFillbetter(image, sr, sc, color);
+// let res = floodFillOptimal(image, sr, sc, color);
 console.log(res);
