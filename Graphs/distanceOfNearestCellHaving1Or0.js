@@ -41,7 +41,6 @@ function nearest(grid) {
         nCol >= 0 &&
         nRow < n &&
         nCol < m &&
-        grid[nRow][nCol] == 0 &&
         !visited[nRow][nCol]
       ) {
         queue.push({ row: nRow, col: nCol, level: level + 1 });
@@ -91,7 +90,6 @@ function nearestOptimal(grid) {
         nCol >= 0 &&
         nRow < n &&
         nCol < m &&
-        grid[nRow][nCol] == 0 &&
         distance[nRow][nCol] == -1
       ) {
         queue.push({ row: nRow, col: nCol, level: level + 1 });
